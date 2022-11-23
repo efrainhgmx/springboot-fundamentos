@@ -9,7 +9,7 @@ public class MyBeanWithDependecyImplement implements MyBeanWithDependecy{
 
     @Override
     public void printWithDependecy() {
-        myOperation.suma(2);
+        System.out.println(myOperation.suma(2));
         System.out.println("Hola desde el Bean con dependencia");
     }
 }
