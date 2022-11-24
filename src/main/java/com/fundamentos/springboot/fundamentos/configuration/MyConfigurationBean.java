@@ -17,11 +17,13 @@ public class MyConfigurationBean {
     }
 
     @Bean
+    public RestBean restBean() {
+       return new RestBeanImplementation();
+    }
+
+    @Bean
     public MyBeanWithDependecy myBeanOperation(MyOperation myOperation) {
         return new MyBeanWithDependecyImplement(myOperation);
     }
-    @Bean
-    public RestBean restBean() {
-       return new RestBean();
-    }
+
 }
