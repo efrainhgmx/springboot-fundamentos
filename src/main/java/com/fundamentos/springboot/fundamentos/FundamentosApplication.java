@@ -2,6 +2,7 @@ package com.fundamentos.springboot.fundamentos;
 
 import com.fundamentos.springboot.fundamentos.bean.MyBean;
 import com.fundamentos.springboot.fundamentos.bean.MyBeanWithDependecy;
+import com.fundamentos.springboot.fundamentos.bean.RestBean;
 import com.fundamentos.springboot.fundamentos.component.ComponentDependecy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -15,11 +16,17 @@ public class FundamentosApplication implements CommandLineRunner {
 	private MyBean myBean;
 
 	private MyBeanWithDependecy myBeanWithDependecy;
+
+    private RestBean restBean;
 	@Autowired
-	public FundamentosApplication(@Qualifier("componentTwoImplement") ComponentDependecy componentDependecy, MyBean myBean, MyBeanWithDependecy myBeanWithDependecy) {
+	public FundamentosApplication(@Qualifier("componentTwoImplement") ComponentDependecy componentDependecy,
+                                  MyBean myBean,
+                                  MyBeanWithDependecy myBeanWithDependecy,
+                                  RestBean restBean) {
 		this.componentDependecy = componentDependecy;
 		this.myBean = myBean;
 		this.myBeanWithDependecy = myBeanWithDependecy;
+        this.restBean = restBean;
 	}
 	public static void main(String[] args) {
 		SpringApplication.run(FundamentosApplication.class, args);

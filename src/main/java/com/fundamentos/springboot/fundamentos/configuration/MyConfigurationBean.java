@@ -20,4 +20,13 @@ public class MyConfigurationBean {
     public MyBeanWithDependecy myBeanOperation(MyOperation myOperation) {
         return new MyBeanWithDependecyImplement(myOperation);
     }
+    @Bean
+    public RestBean restBean() {
+       return new RestBean() {
+           @Override
+           public String uppercase(String s) {
+               return null;
+           }
+       };
+    }
 }
