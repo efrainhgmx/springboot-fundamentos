@@ -37,5 +37,6 @@ public class FundamentosApplication implements CommandLineRunner {
 		componentDependecy.Saludar();
 		myBean.print();
 		myBeanWithDependecy.printWithDependecy();
+		restBean.uppercase("hola por aca!!!");
 	}
 }

@@ -22,11 +22,6 @@ public class MyConfigurationBean {
     }
     @Bean
     public RestBean restBean() {
-       return new RestBean() {
-           @Override
-           public String uppercase(String s) {
-               return null;
-           }
-       };
+       return new RestBean();
     }
 }
