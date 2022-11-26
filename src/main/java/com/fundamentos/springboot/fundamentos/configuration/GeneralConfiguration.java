@@ -1,5 +1,7 @@
 package com.fundamentos.springboot.fundamentos.configuration;
 
+import com.fundamentos.springboot.fundamentos.bean.MyBeanProperties;
+import com.fundamentos.springboot.fundamentos.bean.MyBeanPropertiesImplement;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,7 +18,7 @@ public class GeneralConfiguration {
     private String random;
 
     @Bean
-    private MyBeanProperties function() {
-        return MyBeanPropertiesImplement(name, lastName);
+    public MyBeanProperties function() {
+        return new MyBeanPropertiesImplement(name, lastName);
     }
 }
