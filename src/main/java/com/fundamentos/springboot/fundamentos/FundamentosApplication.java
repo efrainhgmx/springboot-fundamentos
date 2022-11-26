@@ -31,6 +31,7 @@ public class FundamentosApplication implements CommandLineRunner {
 		this.myBean = myBean;
 		this.myBeanWithDependecy = myBeanWithDependecy;
         this.restBean = restBean;
+		this.myBeanProperties = myBeanProperties;
 	}
 	public static void main(String[] args) {
 		SpringApplication.run(FundamentosApplication.class, args);
