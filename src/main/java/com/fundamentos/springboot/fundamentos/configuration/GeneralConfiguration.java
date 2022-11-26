@@ -1,6 +1,7 @@
 package com.fundamentos.springboot.fundamentos.configuration;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
@@ -13,4 +14,9 @@ public class GeneralConfiguration {
 
     @Value("${value.random}")
     private String random;
+
+    @Bean
+    private MyBeanProperties function() {
+        return MyBeanPropertiesImplement(name, lastName);
+    }
 }
