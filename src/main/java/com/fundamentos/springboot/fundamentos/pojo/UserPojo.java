@@ -1,5 +1,10 @@
 package com.fundamentos.springboot.fundamentos.pojo;
 
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.ConstructorBinding;
+
+@ConstructorBinding
+@ConfigurationProperties(prefix = "user")
 public class UserPojo {
     private String email;
     private String password;
