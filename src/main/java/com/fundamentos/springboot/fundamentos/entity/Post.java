@@ -8,4 +8,5 @@ import javax.persistence.Table;
 @Table(name = "post")
 public class Post {
     @Id
+    public Integer id;
 }
