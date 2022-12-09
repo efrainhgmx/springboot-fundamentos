@@ -48,6 +48,10 @@ public class FundamentosApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
+		ejemplos();
+	}
+
+	private void ejemplos() {
 		componentDependecy.Saludar();
 		myBean.print();
 		myBeanWithDependecy.printWithDependecy();
