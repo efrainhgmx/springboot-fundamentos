@@ -5,7 +5,9 @@ import com.fundamentos.springboot.fundamentos.bean.MyBeanProperties;
 import com.fundamentos.springboot.fundamentos.bean.MyBeanWithDependecy;
 import com.fundamentos.springboot.fundamentos.bean.RestBean;
 import com.fundamentos.springboot.fundamentos.component.ComponentDependecy;
+import com.fundamentos.springboot.fundamentos.entity.User;
 import com.fundamentos.springboot.fundamentos.pojo.UserPojo;
+import com.fundamentos.springboot.fundamentos.repository.UserRepository;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,12 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 @SpringBootApplication
 public class FundamentosApplication implements CommandLineRunner {
@@ -28,19 +36,23 @@ public class FundamentosApplication implements CommandLineRunner {
 	private MyBeanProperties myBeanProperties;
 
 	private UserPojo userPojo;
+
+	private UserRepository userRepository;
 	@Autowired
 	public FundamentosApplication(@Qualifier("componentTwoImplement") ComponentDependecy componentDependecy,
                                   MyBean myBean,
                                   MyBeanWithDependecy myBeanWithDependecy,
                                   RestBean restBean,
 								  MyBeanProperties myBeanProperties,
-								  UserPojo userPojo) {
+								  UserPojo userPojo,
+								  UserRepository userRepository) {
 		this.componentDependecy = componentDependecy;
 		this.myBean = myBean;
 		this.myBeanWithDependecy = myBeanWithDependecy;
         this.restBean = restBean;
 		this.myBeanProperties = myBeanProperties;
 		this.userPojo = userPojo;
+		this.userRepository = userRepository;
 	}
 	public static void main(String[] args) {
 		SpringApplication.run(FundamentosApplication.class, args);
@@ -51,6 +63,16 @@ public class FundamentosApplication implements CommandLineRunner {
 		ejemplos();
 	}
 
+	private void saveUsersInDataBase() {
+		User mario = new User("Mario", "mario@domain.com", LocalDate.of(2022,11,24).atStartOfDay());
+		User inna = new User("Inna", "inna@domain.com", LocalDate.of(2022,10,4).atStartOfDay());
+		User carla = new User("Carla", "carla@domain.com", LocalDate.of(2022,9,17).atStartOfDay());
+
+		List<User> users = Arrays.asList(mario, inna, carla);
+
+		users.forEach(userRepository::save);
+
+	}
 	private void ejemplos() {
 		componentDependecy.Saludar();
 		myBean.print();
