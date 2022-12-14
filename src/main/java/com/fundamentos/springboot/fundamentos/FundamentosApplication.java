@@ -64,6 +64,11 @@ public class FundamentosApplication implements CommandLineRunner {
 		saveUsersInDataBase();
 	}
 
+	private void getInformationJpqlFromUser() {
+		LOGGER.info("User finded user the method is " +  userRepository.findByUserEmail("carla@domain.com")
+				.orElseThrow(() -> new RuntimeException("We can't find a user with this email")));
+	}
+
 	private void saveUsersInDataBase() {
 		User mario = new User("Mario", "mario@domain.com", LocalDate.of(2022,11,24).atStartOfDay());
 		User inna = new User("Inna", "inna@domain.com", LocalDate.of(2022,10,4).atStartOfDay());
