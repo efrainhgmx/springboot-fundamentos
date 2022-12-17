@@ -71,7 +71,6 @@ public class FundamentosApplication implements CommandLineRunner {
 				.orElseThrow(() -> new RuntimeException("We can't find a user with this email")));
 
 		userRepository.findAndSort("Mar", Sort.by("id").descending())
-				.stream()
 				.forEach( user -> LOGGER.info("User by sort method: " + user.getName()));
 	}
 
