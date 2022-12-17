@@ -46,10 +46,10 @@ public class GeneralConfiguration {
     @Bean
     public DataSource dataSource() {
         DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();
-        dataSourceBuilder.driverClassName("org.h2.Driver");
-        dataSourceBuilder.url("jdbc:h2:mem:testdb");
-        dataSourceBuilder.username("SA");
-        dataSourceBuilder.password("");
+        dataSourceBuilder.driverClassName(driver);
+        dataSourceBuilder.url(jdbcUrl);
+        dataSourceBuilder.username(username);
+        dataSourceBuilder.password(password);
 
         return dataSourceBuilder.build();
     }
