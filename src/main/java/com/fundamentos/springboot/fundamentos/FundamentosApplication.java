@@ -72,6 +72,8 @@ public class FundamentosApplication implements CommandLineRunner {
 
 		userRepository.findAndSort("Mar", Sort.by("id").descending())
 				.forEach( user -> LOGGER.info("User by sort method: " + user.getName()));
+
+		userRepository.findByName("Carla").forEach(user -> System.out.println(user.getName() + " " + user.getId()));
 	}
 
 	private void saveUsersInDataBase() {
