@@ -76,6 +76,8 @@ public class FundamentosApplication implements CommandLineRunner {
 		userRepository.findByName("Carla").forEach(user -> System.out.println(user.getName() + " " + user.getId()));
 
 		LOGGER.info(userRepository.findByUserEmail("carla@domain.com").orElseThrow(() -> new RuntimeException("El usuario no existe")));
+
+		userRepository.findByNameLike("%Ma%").forEach( user -> LOGGER.info("Using like query user " + user));
 	}
 
 	private void saveUsersInDataBase() {
