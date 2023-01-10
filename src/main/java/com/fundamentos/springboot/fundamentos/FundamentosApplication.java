@@ -78,6 +78,12 @@ public class FundamentosApplication implements CommandLineRunner {
 		LOGGER.info(userRepository.findByUserEmail("carla@domain.com").orElseThrow(() -> new RuntimeException("El usuario no existe")));
 
 		userRepository.findByNameLike("%Ma%").forEach( user -> LOGGER.info("Using like query user " + user));
+
+		userRepository.findByNameOrEmail(null, "carla@domain.com").forEach( user -> LOGGER.info("User is " +  user));
+
+		userRepository.findByBirthDateBetween(LocalDate.of(2022, 9,15), LocalDate.of(2022, 11, 23)).forEach(
+				user -> LOGGER.info("Usuario en intervalo de fechas " + user)
+		);
 	}
 
 	private void saveUsersInDataBase() {
