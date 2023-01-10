@@ -45,7 +45,7 @@ public class GeneralConfiguration {
 
     @Bean
     public DataSource dataSource() {
-        DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();
+        DataSourceBuilder<?> dataSourceBuilder = DataSourceBuilder.create();
         dataSourceBuilder.driverClassName(driver);
         dataSourceBuilder.url(jdbcUrl);
         dataSourceBuilder.username(username);
