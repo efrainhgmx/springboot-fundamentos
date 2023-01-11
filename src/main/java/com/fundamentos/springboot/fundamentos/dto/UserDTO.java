@@ -34,4 +34,11 @@ public class UserDTO {
     public void setBirthdate(String birthdate) {
         this.birthdate = birthdate;
     }
+
+    @Override
+    public String toString() {
+        return "UserDTO{" +
+                "birthdate='" + birthdate + '\'' +
+                '}';
+    }
 }
