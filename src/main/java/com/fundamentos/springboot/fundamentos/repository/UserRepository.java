@@ -5,6 +5,7 @@ import com.fundamentos.springboot.fundamentos.entity.User;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
@@ -35,6 +36,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     @Query("SELECT new com.fundamentos.springboot.fundamentos.dto.UserDTO()" +
     "FROM User u" +
-    "")
-    Optional<UserDTO> getAllbyBirthDateAndEmail(LocalDate date, String email);
+    "where u.birthDate=:parametroFecha" +
+    "and u.email:=parametroEmail")
+    Optional<UserDTO> getAllbyBirthDateAndEmail(@Param("parametroFecha") LocalDate date, @Param("parametroEmail") String email);
 }
