@@ -84,6 +84,7 @@ public class FundamentosApplication implements CommandLineRunner {
 		/*userRepository.findByBirthDateBetween(LocalDate.of(2022, 9,15), LocalDate.of(2022, 11, 23)).forEach(
 				user -> LOGGER.info("Usuario en intervalo de fechas " + user)
 		);*/
+		LOGGER.info(userRepository.getAllbyNameAndEmail("Mario", "mario@domain.com"));
 	}
 
 	private void saveUsersInDataBase() {
