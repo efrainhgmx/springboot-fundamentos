@@ -31,4 +31,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
     List<User> findAllOrderByIdDesc();
 
     List<User> findByNameContainingOrderByIdDesc(String name);
+
+    Optional<UserDTO>
 }
