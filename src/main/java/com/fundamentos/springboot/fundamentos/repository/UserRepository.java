@@ -1,5 +1,6 @@
 package com.fundamentos.springboot.fundamentos.repository;
 
+import com.fundamentos.springboot.fundamentos.dto.UserDTO;
 import com.fundamentos.springboot.fundamentos.entity.User;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -32,5 +33,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     List<User> findByNameContainingOrderByIdDesc(String name);
 
-    Optional<UserDTO>
+    @Query("SELECT new com.fundamentos.springboot.fundamentos.dto.UserDTO()" +
+    "FROM User u" +
+    "")
+    Optional<UserDTO> getAllbyBirthDateAndEmail(LocalDate date, String email);
 }
