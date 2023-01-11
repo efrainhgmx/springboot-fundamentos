@@ -38,7 +38,9 @@ public class UserDTO {
     @Override
     public String toString() {
         return "UserDTO{" +
-                "birthdate='" + birthdate + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", birthdate='" + birthdate + '\'' +
                 '}';
     }
 }
