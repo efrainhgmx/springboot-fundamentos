@@ -66,6 +66,12 @@ public class FundamentosApplication implements CommandLineRunner {
 		getInformationJpqlFromUser();
 	}
 
+	public void saveWithErrorTransactional() {
+		User usterTest = new User("Marianita Tovar", "marianita@domain.com", LocalDate.now().atStartOfDay());
+
+		List<User> userList = Arrays.asList(usterTest);
+
+	}
 	private void getInformationJpqlFromUser() {
 		LOGGER.info("User finded user the method is " +  userRepository.findByUserEmail("carla@domain.com")
 				.orElseThrow(() -> new RuntimeException("We can't find a user with this email")));
