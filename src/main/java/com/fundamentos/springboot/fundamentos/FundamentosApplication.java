@@ -8,6 +8,7 @@ import com.fundamentos.springboot.fundamentos.component.ComponentDependecy;
 import com.fundamentos.springboot.fundamentos.entity.User;
 import com.fundamentos.springboot.fundamentos.pojo.UserPojo;
 import com.fundamentos.springboot.fundamentos.repository.UserRepository;
+import com.fundamentos.springboot.fundamentos.service.UserService;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +40,8 @@ public class FundamentosApplication implements CommandLineRunner {
 	private UserPojo userPojo;
 
 	private UserRepository userRepository;
+
+	private UserService userService;
 	@Autowired
 	public FundamentosApplication(@Qualifier("componentTwoImplement") ComponentDependecy componentDependecy,
                                   MyBean myBean,
@@ -46,7 +49,8 @@ public class FundamentosApplication implements CommandLineRunner {
                                   RestBean restBean,
 								  MyBeanProperties myBeanProperties,
 								  UserPojo userPojo,
-								  UserRepository userRepository) {
+								  UserRepository userRepository,
+								  UserService userService) {
 		this.componentDependecy = componentDependecy;
 		this.myBean = myBean;
 		this.myBeanWithDependecy = myBeanWithDependecy;
@@ -70,6 +74,8 @@ public class FundamentosApplication implements CommandLineRunner {
 		User usterTest = new User("Marianita Tovar", "marianita@domain.com", LocalDate.now().atStartOfDay());
 
 		List<User> userList = Arrays.asList(usterTest);
+
+		userService.saveTransactional(userList);
 
 	}
 	private void getInformationJpqlFromUser() {
