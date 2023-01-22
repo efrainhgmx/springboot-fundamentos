@@ -5,10 +5,10 @@ import com.fundamentos.springboot.fundamentos.service.UserService;
 
 import java.util.List;
 
-public class GetUserImplment implements GetUser{
+public class UserRepositoryImplment implements UserRepository {
     private UserService userService;
 
-    public GetUserImplment(UserService userService) {
+    public UserRepositoryImplment(UserService userService) {
         this.userService = userService;
     }
 
@@ -16,5 +16,14 @@ public class GetUserImplment implements GetUser{
     @Override
     public List<User> getAll() {
         return this.userService.getAllUsers();
+    }
+
+    @Override
+    public void createUser(User user) {
+    }
+
+    @Override
+    public void deleteUser(Long id) {
+
     }
 }

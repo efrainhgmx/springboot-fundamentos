@@ -1,6 +1,6 @@
 package com.fundamentos.springboot.fundamentos.controller;
 
-import com.fundamentos.springboot.fundamentos.caseuse.GetUser;
+import com.fundamentos.springboot.fundamentos.caseuse.UserRepository;
 import com.fundamentos.springboot.fundamentos.entity.User;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,14 +11,14 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/users")
 public class UserRestController {
-    private GetUser getUser;
+    private UserRepository userRepository;
 
-    public UserRestController(GetUser getUser) {
-        this.getUser = getUser;
+    public UserRestController(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
     @GetMapping("/all")
     public List<User> getAll() {
-        return getUser.getAll();
+        return userRepository.getAll();
     }
 }
