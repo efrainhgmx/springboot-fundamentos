@@ -25,4 +25,8 @@ public class UserService {
                 .peek(user -> LOG.info("Usuario insertado: " + user ))
                 .forEach(userRepository::save);
     }
+
+    public List<User> getAllUsers() {
+        return userRepository.findAllOrderByIdDesc();
+    }
 }
