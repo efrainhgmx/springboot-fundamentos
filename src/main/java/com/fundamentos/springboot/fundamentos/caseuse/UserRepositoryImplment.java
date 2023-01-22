@@ -20,10 +20,11 @@ public class UserRepositoryImplment implements UserRepository {
 
     @Override
     public void createUser(User user) {
+        userService.createUser(user);
     }
 
     @Override
     public void deleteUser(Long id) {
-
+        userService.deleteUser(id);
     }
 }
