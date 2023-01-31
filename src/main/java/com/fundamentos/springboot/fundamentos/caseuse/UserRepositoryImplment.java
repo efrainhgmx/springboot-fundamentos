@@ -6,7 +6,7 @@ import com.fundamentos.springboot.fundamentos.service.UserService;
 import java.util.List;
 
 public class UserRepositoryImplment implements UserRepository {
-    private UserService userService;
+    private final UserService userService;
 
     public UserRepositoryImplment(UserService userService) {
         this.userService = userService;
